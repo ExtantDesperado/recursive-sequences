@@ -10,13 +10,13 @@ function fibMaker(n) {
 
 	if (n < 2) {
 
-		if (n === 0) {
+		if (n == 0) {
 
 			value = 0;
 
 		}
 
-		if (n === 1) {
+		if (n == 1) {
 
 			value = 1;
 
@@ -65,13 +65,13 @@ function pellMaker(n) {
 
 	if (n < 2) {
 
-		if (n === 0) {
+		if (n == 0) {
 
 			value = 0;
 
 		}
 
-		if (n === 1) {
+		if (n == 1) {
 
 			value = 1;
 
@@ -120,19 +120,19 @@ function triMaker(n) {
 
 	if (n < 3) {
 
-		if (n === 0) {
+		if (n == 0) {
 
 			value = 0;
 
 		}
 
-		if (n === 1) {
+		if (n == 1) {
 
 			value = 0;
 
 		}
 
-		if (n === 2) {
+		if (n == 2) {
 
 			value = 1;
 
