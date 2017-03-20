@@ -178,7 +178,7 @@ function treeMaker(sequence, n) {
 	if (currTree === null) {
 		var table = document.createElement("table");
 
-		table.setAttribute("id",sequence + "Tree");
+		table.id = sequence + "Tree";
 
 		document.body.appendChild(table);
 
@@ -243,45 +243,45 @@ function addLink(sequence) {
 }
 
 
+function addInputs(sequence) {
+	var slider = document.createElement("input");
+	slider.id = sequence + "Slider";
+	slider.type = "range";
+	slider.min = 0;
+	slider.max = 20;
+	slider.value = 0;
+	document.body.appendChild(slider);
+
+	var button = document.createElement("input");
+	button.id = sequence + "Button";
+	button.type = "button";
+	button.value = sequence + "(0)";
+	document.body.appendChild(button);
+
+	slider.addEventListener("change", function(){
+		button.value = sequence + "(" + slider.value + ")";
+	});
+
+	button.addEventListener("click", function(){
+		treeMaker(sequence,slider.value);
+	});
+}
+
 
 addLink("fib");
-
-
-
-
-
-var fibSlider = document.createElement("input");
-fibSlider.type = "range";
-fibSlider.min = 0;
-fibSlider.max = 20;
-fibSlider.value = 0;
-document.body.appendChild(fibSlider);
-
-
-
-var fibButton = document.createElement("input");
-fibButton.type = "button";
-fibButton.value = "Fib(0)";
-document.body.appendChild(fibButton);
-
-fibSlider.addEventListener("change", function(){
-	fibButton.value = "Fib(" + fibSlider.value + ")";
-});
-
-fibButton.addEventListener("click", function(){
-	treeMaker("fib",fibSlider.value);
-});
-
-
-
+addInputs("fib");
 treeMaker("fib",0);
+
 
 addLink("pell");
 
+addInputs("pell");
 treeMaker("pell",0);
+
 
 addLink("tri");
 
+addInputs("tri");
 treeMaker("tri",0);
 
 
