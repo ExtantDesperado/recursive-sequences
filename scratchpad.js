@@ -122,6 +122,17 @@ function addLink(sequence) {
 	document.body.appendChild(link);
 }
 
+
+
+var fibSlider = document.createElement("input");
+fibSlider.type = "range";
+fibSlider.min = 0;
+fibSlider.max = 20;
+fibSlider.value = 0;
+document.body.appendChild(fibSlider);
+
+
+
 addLink("fib");
 treeMaker("fib",11);
 addLink("pell");
