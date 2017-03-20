@@ -174,12 +174,18 @@ function triMaker(n) {
 
 function treeMaker(sequence, n) {
 
-	var table = document.createElement("table");
+	var currTree = document.querySelector("#" + sequence + "Tree");
+	if (currTree === null) {
+		var table = document.createElement("table");
 
-	table.setAttribute("class",sequence);
+		table.setAttribute("id",sequence + "Tree");
 
-	document.body.appendChild(table);
+		document.body.appendChild(table);
 
+	} else {
+		var table = currTree;
+		table.removeChild(table.firstChild);
+	}
 	switch(sequence) {
 
 		case "fib":
@@ -286,10 +292,10 @@ style.textContent = "table {text-align: center; width: 100%;}" +
 
 	"td {white-space: nowrap; background: rgba(255,255,255,0.1);}" +
 
-	".fib {background-color: red;}" +
+	"#fibTree {background-color: red;}" +
 
-	".pell {background-color: green;}" +
+	"#pellTree {background-color: green;}" +
 
-	".tri {background-color: blue;}";
+	"#triTree {background-color: blue;}";
 
 document.body.appendChild(style);
