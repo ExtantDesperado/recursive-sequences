@@ -249,7 +249,6 @@ fibSlider.type = "range";
 fibSlider.min = 0;
 fibSlider.max = 20;
 fibSlider.value = 0;
-
 document.body.appendChild(fibSlider);
 
 
@@ -259,18 +258,25 @@ fibButton.type = "button";
 fibButton.value = "Fib(0)";
 document.body.appendChild(fibButton);
 
+fibSlider.addEventListener("change", function(){
+	fibButton.value = "Fib(" + fibSlider.value + ")";
+});
+
+fibButton.addEventListener("click", function(){
+	treeMaker("fib",fibSlider.value);
+});
 
 
 
-treeMaker("fib",11);
+treeMaker("fib",0);
 
 addLink("pell");
 
-treeMaker("pell",11);
+treeMaker("pell",0);
 
 addLink("tri");
 
-treeMaker("tri",11);
+treeMaker("tri",0);
 
 
 
