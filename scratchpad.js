@@ -1,9 +1,36 @@
 document.title = "Recursive Sequences";
 
 
+function highlight(className) {
+	var nodelist = document.getElementsByClassName(className);
+	console.log("highlighting");
+	for (var i = 0; i < nodelist.length; i++) {
+		nodelist[i].style.backgroundColor = "yellow";
+	}
+}
+
+function unhighlight(className) {
+	var nodelist = document.getElementsByClassName(className);
+	console.log("highlighting");
+	for (var i = 0; i < nodelist.length; i++) {
+		nodelist[i].style.backgroundColor = "rgba(0,0,0,0)";
+	}
+}
+
+function addListeners(sequence,n) {
+	for (var i = 0; i <= n; i++) {
+		var nodelist = document.getElementsByClassName(sequence + i);
+		for (var j = 0; j < nodelist.length; j++) {
+			nodelist[j].addEventListener("mouseover",function(){ highlight(this.className); });
+			nodelist[j].addEventListener("mouseout",function(){ unhighlight(this.className); });
+		}
+	}
+}
+
 function fibMaker(n) {
 	var data = document.createElement("td");
 	var text = document.createElement("p");
+	text.setAttribute("class","fib" + n);
 	data.appendChild(text);
 	var value;
 
@@ -58,6 +85,7 @@ function pellMaker(n) {
 
 	var text = document.createElement("p");
 
+	text.setAttribute("class","pell" + n);
 	data.appendChild(text);
 
 	var value;
@@ -112,7 +140,7 @@ function triMaker(n) {
 	var data = document.createElement("td");
 
 	var text = document.createElement("p");
-
+	text.setAttribute("class","tri" + n);
 	data.appendChild(text);
 
 	var value;
@@ -204,6 +232,7 @@ function treeMaker(sequence, n) {
 
 	}
 
+	addListeners(sequence,n);
 }
 
 
@@ -290,12 +319,14 @@ var style = document.createElement("style");
 
 style.textContent = "table {text-align: center; width: 100%;}" +
 
-	"td {white-space: nowrap; background: rgba(255,255,255,0.1);}" +
+	"td {white-space: nowrap; background: rgba(255,255,255,0.1); /*border-radius: 30px;*/}" +
 
+	//"table {border-radius: 30px;}" +
 	"#fibTree {background-color: red;}" +
 
 	"#pellTree {background-color: green;}" +
 
-	"#triTree {background-color: blue;}";
-
+	"#triTree {background-color: blue;}" +
+	"input {margin: 5px;}" +
+	"p {padding: 15px 0px; margin: 0px;}";
 document.body.appendChild(style);
